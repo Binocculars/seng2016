@@ -8,9 +8,12 @@ class TestSuite(unittest.TestCase):
 
     def test_one(self):
         app = FizzBuzz()
-        self.failIf(app.calc(3) != "Fizz")
-        self.failIf(app.calc(5) != "Buzz")
-        self.failIf(app.calc(15) != "FizzBuzz")
+        for i in range(3, 100, 3):
+            self.failIf(app.calc(i) != "Fizz" and app.calc(i) != "FizzBuzz")
+        for i in range(5, 101, 5):
+            self.failIf(app.calc(i) != "Buzz" and app.calc(i) != "FizzBuzz")
+        for i in range(15, 101, 15):
+            self.failIf(app.calc(i) != "FizzBuzz")
 
 
     def test_run(self):
